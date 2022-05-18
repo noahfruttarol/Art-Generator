@@ -1,2 +1,2 @@
 # Art-Generator
-An abstract art generator I made in Python
+An abstract HTML art generator made in Python
