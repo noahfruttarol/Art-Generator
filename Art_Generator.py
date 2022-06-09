@@ -2,8 +2,6 @@
 '''HTML art generator by Noah Fruttarol'''
 print(__doc__)
 
-from email.policy import default
-from logging.config import valid_ident
 from pickle import FALSE, TRUE
 import random
 import sys
