@@ -148,7 +148,7 @@ class pageSetup:
 
 
     def genPage(self, winTitle: str):
-        self.writeHTMLHeader(winTitle)
+        self.writeHeader(winTitle)
         art: shapesConfig = self.start()
         self.genAllShapes(art)
         self.endPage()
@@ -165,7 +165,7 @@ class pageSetup:
             Ellipse((shape["x"],shape["y"],shape["rx"],shape["ry"]),  (shape["r"],shape["g"],shape["b"],shape["op"])).draw(self.f)
             return
             
-    def genAllShapes(self, art: ArtConfig):
+    def genAllShapes(self, art: shapesConfig):
         for i in range(art.getSize()):
             self.drawShape(art.getShape(i)) ##uses loop to draw all shapes 
             
@@ -186,11 +186,17 @@ class pageSetup:
         self.f.write(f"{spacing}{line}\n")
 
     def writeHeader(self, winTitle: str):
-        self.writeLine(0, "<html>")
-        self.writeLine(0, "<head>")
-        self.writeLine(1, f"<title>{winTitle}</title>")
-        self.writeLine(0, "</head>")
-        self.writeLine(0, "<body>")
+        s: str = "<html>"
+        self.f.write(f"{s}\n")
+        s = "<head>"
+        self.f.write(f"{s}\n")
+        spacing: str = "   "
+        s = f"<title>{winTitle}</title>"
+        self.f.write(f"{spacing}{s}\n")
+        s = "</head>"
+        self.f.write(f"{s}\n")
+        s = "<body>"
+        self.f.write(f"{s}\n")
 
 def makeHTMLfile(): 
     fileName: str = "my_art.html"
